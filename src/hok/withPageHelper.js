@@ -6,10 +6,10 @@ import { curryRight } from 'lodash';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { constants } from '../../../core/constants/index';
+import { constants } from '../core/constants/index';
 
-import { uiActions } from '../../../flux-saga/bus/ui/wrapper/actions';
-import { uiActionsAsync } from '../../../flux-saga/bus/ui/wrapper/saga/asyncActions';
+import { uiActions } from '../flux-saga/bus/ui/wrapper/actions';
+import { uiActionsAsync } from '../flux-saga/bus/ui/wrapper/saga/asyncActions';
 
 export const withPageHelper = Enchanced => {
   const messages = defineMessages({

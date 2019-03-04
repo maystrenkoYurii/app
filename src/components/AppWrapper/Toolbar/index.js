@@ -8,7 +8,7 @@ import Menu from '../../../containers/AppWrapper/Toolbar/Menu';
 import SvgLogoLarge from '../../SvgImage/Logo/Large';
 import SvgLogoSmall from '../../SvgImage/Logo/Small';
 
-import { withPageHelper } from '../HOK/withPageHelper';
+import { withPageHelper } from '../../../hok/withPageHelper';
 
 import './styles.css';
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
 import classNames from 'classnames';
 
-import { withPageHelper } from '../../HOK/withPageHelper';
+import { withPageHelper } from '../../../../hok/withPageHelper';
 
 import SvgHelpIcon from '../../../SvgImage/Help';
 import SvgCollectionIcon from '../../../SvgImage/Collection';

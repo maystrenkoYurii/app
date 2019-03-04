@@ -3,4 +3,4 @@ export * from './сookie';
 export * from './form';
 export * from './language';
 export * from './fetchError';
-export * from './loadingPage';
+export * from './selectors';

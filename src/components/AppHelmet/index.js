@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
 import { Helmet } from 'react-helmet';
 
-import { withPageHelper } from '../AppWrapper/HOK/withPageHelper';
+import { withPageHelper } from '../../hok/withPageHelper';
 import { constants } from '../../core/constants/index';
 
 import '../../assets/styles/init.css';

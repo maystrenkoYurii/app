@@ -6,8 +6,6 @@ import { withRouter } from 'react-router-dom';
 
 import Router from '../../components/Routes';
 
-import { isLoadingDataBasket } from '../../core/functions/loadingPage';
-
 const mapStateToProps = state => {
   return {
     authUser: state.fetch.user,
@@ -21,25 +19,12 @@ const mapStateToProps = state => {
 class RoutesContainer extends Component {
   static propTypes = {
     authUser: PropTypes.object,
-    fetching: PropTypes.object,
-  };
-
-  static defaultProps = {
-    fetching: { isFetch: false, type: '' },
   };
 
   render() {
-    const {
-      authUser,
-      fetching: { isFetch, type },
-    } = this.props;
+    const { authUser } = this.props;
 
-    return (
-      <Router
-        isLoadingBasket={isLoadingDataBasket(isFetch, type)}
-        authUser={authUser}
-      />
-    );
+    return <Router authUser={authUser} />;
   }
 }
 

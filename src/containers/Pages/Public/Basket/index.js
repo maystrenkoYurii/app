@@ -1,47 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import Basket from '../../../../components/Pages/Public/Basket/index';
 
-import { basketActionsAsync } from '../../../../flux-saga/bus/fetch/basket/saga/asyncActions';
+import { withPageFetch } from '../../../../hok/withPageFetch';
 
-import { isClient } from '../../../../core/functions';
-
-const mapDispatchToProps = dispatch => {
-  return {
-    actions: bindActionCreators(
-      {
-        ...basketActionsAsync,
-      },
-      dispatch,
-    ),
-  };
-};
-
-const mapStateToProps = () => {
-  return {};
-};
-
-@compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
-)
+@compose(withPageFetch)
 class BasketContainer extends Component {
   static propTypes = {
-    actions: PropTypes.object,
+    getPageFetch: PropTypes.func,
   };
 
   componentDidMount() {
-    const { actions } = this.props;
-
-    if (isClient()) {
-      actions.setFetchBasketProductsAsync();
-    }
+    const { getPageFetch } = this.props;
+    getPageFetch();
   }
 
   render() {

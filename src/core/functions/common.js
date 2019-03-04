@@ -13,3 +13,7 @@ export const isAuthenticatedUser = authUser => {
 export const isAuthenticatedInterface = authUser => {
   return isAuthenticatedUser(authUser);
 };
+
+export const isLoadingPage = (isFetch, type, typePage) => {
+  return isFetch && type === typePage;
+};

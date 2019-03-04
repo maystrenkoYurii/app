@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import compose from 'recompose/compose';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Loadable from '../../containers/Pages/Loadable';
@@ -7,10 +8,13 @@ import Loadable from '../../containers/Pages/Loadable';
 import { isAuthenticatedInterface } from '../../core/functions';
 import { constants } from '../../core/constants/index';
 
+import { withPageFetch } from '../../hok/withPageFetch';
+
+@compose(withPageFetch)
 class Routes extends Component {
   static propTypes = {
+    isLoadingBasket: PropTypes.bool,
     authUser: PropTypes.object.isRequired,
-    isLoadingBasket: PropTypes.bool.isRequired,
   };
 
   render() {

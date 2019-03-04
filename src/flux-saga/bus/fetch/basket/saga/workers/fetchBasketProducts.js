@@ -1,13 +1,9 @@
-//import CartsService from '@plasma-platform/tm-service-carts';
-
 import { basketActions } from '../../actions';
 import { fetchActionsAsync } from '../../../../ui/fetch/saga/asyncActions';
 
 import { types } from '../../types';
 
-//import { constants } from '../../../../../../core/constants/index';
-
-import { put /*, select, call*/ } from 'redux-saga/effects';
+import { put, delay } from 'redux-saga/effects';
 
 export function* callFetchBasketProductsWorker() {
   try {
@@ -19,13 +15,11 @@ export function* callFetchBasketProductsWorker() {
       }),
     );
 
-    //const token = yield select(state => state.fetch.user.token);
+    console.log('FETCH BASKED START');
 
-    // const cartsService = new CartsService(constants.API_URL_BASKED, token);
-    // const cart = yield call(cartsService.addNewCart, 'USD', {
-    //   affiliate: 'colorlib',
-    // });
-    // console.log(cart);
+    yield delay(5000);
+
+    console.log('FETCH BASKED COMPLETE');
 
     yield put(basketActions.setFetchBasketProductsSuccess());
   } catch (error) {
