@@ -9,12 +9,12 @@ import { withPageFetch } from '../../../../hok/withPageFetch';
 @compose(withPageFetch)
 class BasketContainer extends Component {
   static propTypes = {
-    getPageFetch: PropTypes.func,
+    getPageFetchForLocation: PropTypes.func,
   };
 
   componentDidMount() {
-    const { getPageFetch } = this.props;
-    getPageFetch();
+    const { getPageFetchForLocation } = this.props;
+    getPageFetchForLocation();
   }
 
   render() {
