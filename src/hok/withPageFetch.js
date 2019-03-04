@@ -47,7 +47,7 @@ export const withPageFetch = Enchanced => {
       fetching: PropTypes.object,
     };
 
-    getPageFetchForLocation = () => {
+    getPageFetch = () => {
       const { location } = this.props;
 
       if (isClient()) {
@@ -76,7 +76,7 @@ export const withPageFetch = Enchanced => {
 
       return (
         <Enchanced
-          getPageFetchForLocation={this.getPageFetchForLocation}
+          getPageFetch={this.getPageFetch}
           isLoadingBasket={isLoadingBasket}
           {...this.props}
         />
