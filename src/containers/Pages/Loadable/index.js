@@ -27,6 +27,7 @@ class LoadableContainer extends Component {
       errorComponent,
       minDelayLoading,
       isLoading,
+      ...other
     } = this.props;
 
     return (
@@ -36,6 +37,7 @@ class LoadableContainer extends Component {
         errorComponent={errorComponent}
         minDelayLoading={minDelayLoading}
         isLoading={isLoading}
+        {...other}
       />
     );
   }

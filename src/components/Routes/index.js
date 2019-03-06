@@ -27,27 +27,37 @@ class Routes extends Component {
     const collection = import('../../containers/Pages/Public/Collection');
     const account = import('../../containers/Pages/Private/Account');
 
+    const Page = props => {
+      const { dynamicImport, isLoading } = props;
+
+      return (
+        <Loadable
+          isLoading={isLoading}
+          dynamicImport={dynamicImport}
+          {...props}
+        />
+      );
+    };
+
     return (
       <Switch>
         <Route
           exact
           path={constants.PATCH_URL_HOME}
-          component={props => <Loadable dynamicImport={home} {...props} />}
+          component={props => <Page dynamicImport={home} {...props} />}
         />
 
         <Route
           exact
           path={constants.PATCH_URL_ABOUT_PRODUCT}
-          component={props => (
-            <Loadable dynamicImport={aboutProduct} {...props} />
-          )}
+          component={props => <Page dynamicImport={aboutProduct} {...props} />}
         />
 
         <Route
           exact
           path={constants.PATCH_URL_BASKET}
-          component={props => (
-            <Loadable
+          render={props => (
+            <Page
               isLoading={isLoadingBasket}
               dynamicImport={basket}
               {...props}
@@ -58,22 +68,20 @@ class Routes extends Component {
         <Route
           exact
           path={constants.PATCH_URL_HELP}
-          component={props => <Loadable dynamicImport={help} {...props} />}
+          component={props => <Page dynamicImport={help} {...props} />}
         />
 
         <Route
           exact
           path={constants.PATCH_URL_COLLECTION}
-          component={props => (
-            <Loadable dynamicImport={collection} {...props} />
-          )}
+          component={props => <Page dynamicImport={collection} {...props} />}
         />
 
         {isAuthenticatedInterface(authUser) && (
           <Route
             exact
             path={constants.PATCH_URL_ACCOUNT}
-            component={props => <Loadable dynamicImport={account} {...props} />}
+            component={props => <Page dynamicImport={account} {...props} />}
           />
         )}
 

@@ -35,6 +35,7 @@ class Loadable extends Component {
       errorComponent,
       minDelayLoading,
       isLoading,
+      ...other
     } = this.props;
 
     const options = {
@@ -46,7 +47,7 @@ class Loadable extends Component {
 
     const Component = universal(() => dynamicImport, options);
 
-    return <Component isLoading={isLoading} {...this.props} />;
+    return <Component isLoading={isLoading} {...this.props} {...other} />;
   }
 }
 

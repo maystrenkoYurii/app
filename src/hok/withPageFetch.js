@@ -13,7 +13,7 @@ import {
   isLoadingPage,
   getFetchingWithReselect,
 } from '../core/functions';
-//import { constants } from '../core/constants/index';
+import { constants } from '../core/constants/index';
 
 export const withPageFetch = Enchanced => {
   const mapDispatchToProps = dispatch => {
@@ -47,21 +47,40 @@ export const withPageFetch = Enchanced => {
       fetching: PropTypes.object,
     };
 
-    getPageFetch = () => {
-      const { location } = this.props;
+    static getDerivedStateFromProps(nextProps, prevState) {
+      return {
+        location: nextProps.location,
+        setFetch: nextProps.location !== prevState.location,
+      };
+    }
 
-      if (isClient()) {
+    constructor(props) {
+      super(props);
+      this.state = {
+        location: props.location,
+      };
+    }
+
+    getPageFetch = () => {
+      const { actions, location } = this.props;
+      const { setFetch } = this.state;
+
+      if (isClient() && setFetch) {
         const path = location.pathname;
 
         switch (path) {
-          // case constants.PATCH_URL_BASKET:
-          //   return actions.setFetchBasketProductsAsync();
+          case constants.PATCH_URL_BASKET:
+            return actions.setFetchBasketProductsAsync();
 
           default:
             return () => null;
         }
       }
     };
+
+    componentDidUpdate() {
+      this.getPageFetch();
+    }
 
     render() {
       const {
