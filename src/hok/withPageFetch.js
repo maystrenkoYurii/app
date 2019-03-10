@@ -47,25 +47,25 @@ export const withPageFetch = Enchanced => {
       fetching: PropTypes.object,
     };
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-      return {
-        location: nextProps.location,
-        setFetch: nextProps.location !== prevState.location,
-      };
-    }
-
     constructor(props) {
       super(props);
       this.state = {
-        location: props.location,
+        pathname: '',
+      };
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+      return {
+        pathname: nextProps.location.pathname,
+        isRunFetch: nextProps.location.pathname !== prevState.pathname,
       };
     }
 
     getPageFetch = () => {
       const { actions, location } = this.props;
-      const { setFetch } = this.state;
+      const { isRunFetch } = this.state;
 
-      if (isClient() && setFetch) {
+      if (isClient() && isRunFetch) {
         const path = location.pathname;
 
         switch (path) {
@@ -77,6 +77,10 @@ export const withPageFetch = Enchanced => {
         }
       }
     };
+
+    componentDidMount() {
+      this.getPageFetch();
+    }
 
     componentDidUpdate() {
       this.getPageFetch();
