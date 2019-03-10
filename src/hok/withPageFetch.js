@@ -85,8 +85,8 @@ export const withPageFetch = Enchanced => {
 
       return (
         <Enchanced
-          getFetchBasket={this.getFetchBasket}
           isLoadingBasket={isLoadingBasket}
+          getFetchBasket={this.getFetchBasket}
           {...this.props}
         />
       );

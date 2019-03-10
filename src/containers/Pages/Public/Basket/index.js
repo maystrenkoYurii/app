@@ -8,6 +8,10 @@ class BasketContainer extends Component {
     getFetchBasket: PropTypes.func,
   };
 
+  static defaultProps = {
+    getFetchBasket: () => null,
+  };
+
   componentDidMount() {
     const { getFetchBasket } = this.props;
     getFetchBasket();
