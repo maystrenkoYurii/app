@@ -14,14 +14,16 @@ import { withPageFetch } from '../../hok/withPageFetch';
 class Routes extends Component {
   static propTypes = {
     isLoadingBasket: PropTypes.bool,
+    getFetchBasket: PropTypes.func,
     authUser: PropTypes.object.isRequired,
   };
 
   render() {
-    const { authUser, isLoadingBasket } = this.props;
+    const { authUser, isLoadingBasket, getFetchBasket } = this.props;
 
     const home = import('../../containers/Pages/Public/Home');
-    const aboutProduct = import('../../containers/Pages/Public/AboutProduct');
+    const product = import('../../containers/Pages/Public/Product');
+    const currentProduct = import('../../containers/Pages/Public/Product/Current');
     const basket = import('../../containers/Pages/Public/Basket');
     const help = import('../../containers/Pages/Public/Help');
     const collection = import('../../containers/Pages/Public/Collection');
@@ -49,8 +51,15 @@ class Routes extends Component {
 
         <Route
           exact
-          path={constants.PATCH_URL_ABOUT_PRODUCT}
-          component={props => <Page dynamicImport={aboutProduct} {...props} />}
+          path={constants.PATCH_URL_PRODUCT}
+          component={props => <Page dynamicImport={product} {...props} />}
+        />
+
+        <Route
+          path={constants.PATCH_URL_CURRENT_PRODUCT}
+          component={props => (
+            <Page dynamicImport={currentProduct} {...props} />
+          )}
         />
 
         <Route
@@ -59,6 +68,7 @@ class Routes extends Component {
           render={props => (
             <Page
               isLoading={isLoadingBasket}
+              getFetchBasket={getFetchBasket}
               dynamicImport={basket}
               {...props}
             />

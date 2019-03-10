@@ -18,7 +18,7 @@ export const withPageHelper = Enchanced => {
       defaultMessage: 'Головна',
     },
     aboutProduct: {
-      id: 'app.page.aboutProduct',
+      id: 'app.page.product',
       defaultMessage: 'Про продукт',
     },
     basket: {
@@ -82,7 +82,7 @@ export const withPageHelper = Enchanced => {
         case constants.PATCH_URL_HOME:
           return formatMessage(messages.home);
 
-        case constants.PATCH_URL_ABOUT_PRODUCT:
+        case constants.PATCH_URL_PRODUCT:
           return formatMessage(messages.aboutProduct);
 
         case constants.PATCH_URL_BASKET:
@@ -118,7 +118,7 @@ export const withPageHelper = Enchanced => {
     handleOnClickAboutProduct = () => {
       const { actions } = this.props;
       this.handleCloseMobileHeaderMenu();
-      actions.setRouterToLinkAsync(constants.PATCH_URL_ABOUT_PRODUCT);
+      actions.setRouterToLinkAsync(constants.PATCH_URL_PRODUCT);
     };
 
     handleOnClickBasket = () => {

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 import Wrapper from '../../../../containers/Pages/Wrapper/index';
 
-class AboutProduct extends Component {
+class Product extends Component {
   render() {
-    return <Wrapper>{'AboutProduct'}</Wrapper>;
+    return <Wrapper>{'Product'}</Wrapper>;
   }
 }
 
-export default AboutProduct;
+export default Product;

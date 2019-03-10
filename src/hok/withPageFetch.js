@@ -13,7 +13,6 @@ import {
   isLoadingPage,
   getFetchingWithReselect,
 } from '../core/functions';
-import { constants } from '../core/constants/index';
 
 export const withPageFetch = Enchanced => {
   const mapDispatchToProps = dispatch => {
@@ -61,30 +60,17 @@ export const withPageFetch = Enchanced => {
       };
     }
 
-    getPageFetch = () => {
-      const { actions, location } = this.props;
+    getFetch = (fetch = () => null) => {
       const { isRunFetch } = this.state;
-
       if (isClient() && isRunFetch) {
-        const path = location.pathname;
-
-        switch (path) {
-          case constants.PATCH_URL_BASKET:
-            return actions.setFetchBasketProductsAsync();
-
-          default:
-            return () => null;
-        }
+        fetch();
       }
     };
 
-    componentDidMount() {
-      this.getPageFetch();
-    }
-
-    componentDidUpdate() {
-      this.getPageFetch();
-    }
+    getFetchBasket = () => {
+      const { actions } = this.props;
+      this.getFetch(actions.setFetchBasketProductAsync);
+    };
 
     render() {
       const {
@@ -99,7 +85,7 @@ export const withPageFetch = Enchanced => {
 
       return (
         <Enchanced
-          getPageFetch={this.getPageFetch}
+          getFetchBasket={this.getFetchBasket}
           isLoadingBasket={isLoadingBasket}
           {...this.props}
         />

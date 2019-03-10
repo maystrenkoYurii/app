@@ -4,7 +4,8 @@ export const constants = Object.freeze({
   API_URL_BASKED: 'https://api.templatemonster.com/carts/v2/',
 
   PATCH_URL_HOME: '/',
-  PATCH_URL_ABOUT_PRODUCT: '/about_product',
+  PATCH_URL_PRODUCT: '/product',
+  PATCH_URL_CURRENT_PRODUCT: '/product/:id',
   PATCH_URL_BASKET: '/basket',
   PATCH_URL_HELP: '/help',
   PATCH_URL_ACCOUNT: '/account',
