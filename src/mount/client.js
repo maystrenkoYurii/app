@@ -6,8 +6,8 @@ import createBrowserHistory from 'history/createBrowserHistory';
 import { AppContainer } from 'react-hot-loader';
 import RedBox from 'redbox-react';
 
-import IntlProvider from '../containers/IntlProvider/index';
-import App from '../containers/App';
+import IntlProvider from '../components/containers/IntlProvider/index';
+import App from '../components/containers/App';
 
 import { configureStore } from '../flux-saga/store/index.js';
 import { constants } from '../../webpack/common/constants';
@@ -41,8 +41,8 @@ const render = Component => {
 };
 
 if (constants.NODE_DEV && module.hot) {
-  module.hot.accept('../containers/App/index.js', () => {
-    const App = require('../containers/App/index.js').default;
+  module.hot.accept('../components/containers/App/index.js', () => {
+    const App = require('../components/containers/App/index.js').default;
     render(App);
   });
 }

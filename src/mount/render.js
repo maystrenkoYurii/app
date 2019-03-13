@@ -10,8 +10,8 @@ import Serialize from 'serialize-javascript';
 import { flushChunkNames } from 'react-universal-component/server';
 import flushChunks from 'webpack-flush-chunks';
 
-import IntlProvider from '../containers/IntlProvider/index';
-import App from '../containers/App';
+import IntlProvider from '../components/containers/IntlProvider/index';
+import App from '../components/containers/App';
 
 import { configureStore } from '../flux-saga/store/index.js';
 import {
