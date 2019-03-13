@@ -27,7 +27,7 @@
     "test:debug": "node --inspect-brk ./node_modules/.bin/jest --runInBand --config ./jest/jest.test.config.json",
     "format:eslint": "prettier --write **/*.{js,jsx,json}",
     "format:stylelint": "prettier --write **/*.{css,pcss}",
-    "format": "npm run format:eslint",
+    "format": "npm run format:eslint && npm run format:stylelint",
     "git:add": "git add ."
   },
   "husky": {
