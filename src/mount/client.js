@@ -7,7 +7,7 @@ import { AppContainer } from 'react-hot-loader';
 import RedBox from 'redbox-react';
 
 import IntlProvider from '../components/containers/IntlProvider/index';
-import App from '../components/containers/App';
+import Root from '../components/containers/Root';
 
 import { configureStore } from '../flux-saga/store/index.js';
 import { constants } from '../../webpack/common/constants';
@@ -41,10 +41,10 @@ const render = Component => {
 };
 
 if (constants.NODE_DEV && module.hot) {
-  module.hot.accept('../components/containers/App/index.js', () => {
-    const App = require('../components/containers/App/index.js').default;
+  module.hot.accept('../components/containers/Root/index.js', () => {
+    const App = require('../components/containers/Root/index.js').default;
     render(App);
   });
 }
 
-render(App);
+render(Root);

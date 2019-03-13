@@ -11,7 +11,7 @@ import { flushChunkNames } from 'react-universal-component/server';
 import flushChunks from 'webpack-flush-chunks';
 
 import IntlProvider from '../components/containers/IntlProvider/index';
-import App from '../components/containers/App';
+import App from '../components/containers/Root';
 
 import { configureStore } from '../flux-saga/store/index.js';
 import {
