@@ -76,7 +76,7 @@ const clientConfig = () => {
       }),
       new StylelintWebpackPlugin({
         configFile: paths.STYLELINT,
-        files: '**/*.css',
+        files: '**/*.{css,pcss}',
       }),
       new WriteFilePlugin(),
       imageMin(),

@@ -91,7 +91,7 @@ const clientConfig = () => {
         filename: 'css/[name]-[contenthash].css',
       }),
       new OptimizeCssAssetsPlugin({
-        assetNameRegExp: /\.css$/,
+        assetNameRegExp: /\.(css|pcss)$/,
         cssProcessor: CssNano,
         cssProcessorOptions: { discardComments: { removeAll: true } },
         canPrint: true,
