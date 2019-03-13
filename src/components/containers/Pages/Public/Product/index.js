@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-import Product from '../../../../../components/presentational/Pages/Public/Product/index';
+import Loadable from '../../../../containers/Loadable';
 
 class ProductContainer extends Component {
   render() {
-    return <Product />;
+    const product = import('../../../../../components/presentational/Pages/Public/Product');
+
+    return <Loadable dynamicImport={product} />;
   }
 }
 

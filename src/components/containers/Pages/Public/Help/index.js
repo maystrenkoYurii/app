@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-import Help from '../../../../../components/presentational/Pages/Public/Help/index';
+import Loadable from '../../../../containers/Loadable';
 
 class HelpContainer extends Component {
   render() {
-    return <Help />;
+    const help = import('../../../../../components/presentational/Pages/Public/Help');
+
+    return <Loadable dynamicImport={help} />;
   }
 }
 

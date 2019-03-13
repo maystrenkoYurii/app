@@ -28,7 +28,6 @@ export const withPageFetch = Enchanced => {
 
   const mapStateToProps = state => {
     return {
-      location: state.router.location,
       fetching: getFetchingWithReselect(state),
     };
   };
@@ -42,39 +41,20 @@ export const withPageFetch = Enchanced => {
   class withPageFetch extends Component {
     static propTypes = {
       actions: PropTypes.object,
-      location: PropTypes.object,
       fetching: PropTypes.object,
-    };
-
-    constructor(props) {
-      super(props);
-      this.state = {
-        pathname: '',
-      };
-    }
-
-    static getDerivedStateFromProps(nextProps, prevState) {
-      return {
-        pathname: nextProps.location.pathname,
-        isRunFetch: nextProps.location.pathname !== prevState.pathname,
-      };
-    }
-
-    getFetch = (fetch = () => null) => {
-      const { isRunFetch } = this.state;
-      if (isClient() && isRunFetch) {
-        fetch();
-      }
     };
 
     getFetchBasket = () => {
       const { actions } = this.props;
-      this.getFetch(actions.setFetchBasketProductAsync);
+      if (isClient()) {
+        actions.setFetchBasketProductAsync();
+      }
     };
 
     render() {
       const {
         fetching: { isFetch, type },
+        ...other
       } = this.props;
 
       const isLoadingBasket = isLoadingPage(
@@ -87,7 +67,7 @@ export const withPageFetch = Enchanced => {
         <Enchanced
           isLoadingBasket={isLoadingBasket}
           getFetchBasket={this.getFetchBasket}
-          {...this.props}
+          {...other}
         />
       );
     }

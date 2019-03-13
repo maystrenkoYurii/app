@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-import Collection from '../../../../../components/presentational/Pages/Public/Collection/index';
+import Loadable from '../../../../containers/Loadable';
 
 class CollectionContainer extends Component {
   render() {
-    return <Collection />;
+    const collection = import('../../../../../components/presentational/Pages/Public/Collection');
+
+    return <Loadable dynamicImport={collection} />;
   }
 }
 

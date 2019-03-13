@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import compose from 'recompose/compose';
 
-import Basket from '../../../../../components/presentational/Pages/Public/Basket/index';
+import Loadable from '../../../../containers/Loadable';
 
+import { withPageFetch } from '../../../../hok/withPageFetch';
+
+@compose(withPageFetch)
 class BasketContainer extends Component {
   static propTypes = {
+    isLoadingBasket: PropTypes.bool,
     getFetchBasket: PropTypes.func,
-  };
-
-  static defaultProps = {
-    getFetchBasket: () => null,
   };
 
   componentDidMount() {
@@ -18,7 +19,11 @@ class BasketContainer extends Component {
   }
 
   render() {
-    return <Basket />;
+    const { isLoadingBasket } = this.props;
+
+    const basket = import('../../../../../components/presentational/Pages/Public/Basket');
+
+    return <Loadable isLoading={isLoadingBasket} dynamicImport={basket} />;
   }
 }
 

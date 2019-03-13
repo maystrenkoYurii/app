@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-import Home from '../../../../../components/presentational/Pages/Public/Home/index';
+import Loadable from '../../../../containers/Loadable';
 
 class HomeContainer extends Component {
   render() {
-    return <Home />;
+    const home = import('../../../../../components/presentational/Pages/Public/Home');
+
+    return <Loadable dynamicImport={home} />;
   }
 }
 
