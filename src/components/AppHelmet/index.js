@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 import { withPageHelper } from '../../hok/withPageHelper';
 import { constants } from '../../core/constants/index';
 
-import '../../assets/styles/init.css';
+import '../../assets/styles/init.pcss';
 
 @compose(withPageHelper)
 class AppHelmet extends Component {

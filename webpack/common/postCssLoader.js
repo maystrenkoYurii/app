@@ -21,7 +21,7 @@ export const postCssLoader = () => {
           imports(),
           url(),
           modules({
-            mode: 'global', //loader.resourcePath.includes('.m.css') ? 'local' : 'global',
+            mode: 'global',
           }),
           gradients(),
           properties(),

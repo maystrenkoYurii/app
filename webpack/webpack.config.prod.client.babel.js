@@ -50,7 +50,7 @@ const clientConfig = () => {
           exclude: /node_modules/,
         },
         {
-          test: /\.css$/,
+          test: /\.pcss$/,
           use: [
             ExtractCssChunks.loader,
             {

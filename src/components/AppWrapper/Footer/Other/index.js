@@ -5,7 +5,7 @@ import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
 import { curryRight } from 'lodash';
 import classNames from 'classnames';
 
-import './styles.css';
+import './styles.pcss';
 
 const messages = defineMessages({
   copyright: {

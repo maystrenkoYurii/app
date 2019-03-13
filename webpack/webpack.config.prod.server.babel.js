@@ -29,7 +29,7 @@ const serverConfig = () => {
           exclude: /node_modules/,
         },
         {
-          test: /\.css$/,
+          test: /\.pcss$/,
           use: [
             {
               loader: 'css-loader',

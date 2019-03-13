@@ -10,7 +10,7 @@ import SvgChatIcon from '../../../components/SvgImage/Chat';
 
 import imageOffer from '../../../assets/images/image_offer.png';
 
-import './styles.css';
+import './styles.pcss';
 
 const messages = defineMessages({
   startChat: {

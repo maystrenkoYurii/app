@@ -10,7 +10,7 @@ import SvgCollectionIcon from '../../../SvgImage/Collection';
 import SvgAccountIcon from '../../../SvgImage/Account';
 import SvgBasketIcon from '../../../SvgImage/Basket';
 
-import './styles.css';
+import './styles.pcss';
 
 import { constants } from '../../../../core/constants/index';
 

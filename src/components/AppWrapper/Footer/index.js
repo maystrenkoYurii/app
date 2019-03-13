@@ -8,7 +8,7 @@ import Navigation from '../../../containers/AppWrapper/Footer/Navigation';
 import Subscribe from '../../../containers/AppWrapper/Footer/Subscribe';
 import Other from '../../../containers/AppWrapper/Footer/Other';
 
-import './styles.css';
+import './styles.pcss';
 
 class Footer extends Component {
   static propTypes = {

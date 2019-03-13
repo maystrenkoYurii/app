@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 import ReactSvg from 'react-svg';
 
-import './styles.css';
+import './styles.pcss';
 
 import iconProducts from '../../../../assets/images/icon-products.svg';
 import iconSubjects from '../../../../assets/images/icon-subjects.svg';

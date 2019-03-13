@@ -10,7 +10,7 @@ import {
 import { curryRight } from 'lodash';
 import classNames from 'classnames';
 
-import './styles.css';
+import './styles.pcss';
 
 import SvgLogoLarge from '../../../SvgImage/Logo/Large';
 

@@ -10,7 +10,7 @@ import SvgLogoSmall from '../../SvgImage/Logo/Small';
 
 import { withPageHelper } from '../../../hok/withPageHelper';
 
-import './styles.css';
+import './styles.pcss';
 
 @compose(withPageHelper)
 class Toolbar extends Component {

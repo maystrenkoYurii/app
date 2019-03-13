@@ -16,7 +16,7 @@ import { isValidEmail } from '../../../../core/functions/form';
 import iconSubscribe from '../../../../assets/images/icon-subscribe.svg';
 import SvgIconEmail from '../../../SvgImage/Email';
 
-import './styles.css';
+import './styles.pcss';
 
 const messages = defineMessages({
   offer: {

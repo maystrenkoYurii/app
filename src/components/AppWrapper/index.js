@@ -6,7 +6,7 @@ import Toolbar from '../../containers/AppWrapper/Toolbar';
 import Offer from '../../containers/AppWrapper/Offer';
 import Footer from '../../containers/AppWrapper/Footer';
 
-import './styles.css';
+import './styles.pcss';
 
 class AppWrapper extends Component {
   static propTypes = {
